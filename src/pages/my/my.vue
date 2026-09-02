@@ -1,11 +1,8 @@
 <template>
   <view class="page">
-    <text class="title">首页</text>
+    <text class="title">我的</text>
   </view>
 </template>
-
-<script setup lang="ts">
-</script>
 
 <style scoped>
 .page {
