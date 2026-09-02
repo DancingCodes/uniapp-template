@@ -27,8 +27,8 @@ const { t } = useI18n()
 const userStore = useUserStore()
 const loading = ref(false)
 const form = reactive({
-  username: '',
-  password: ''
+  username: 'demo',
+  password: '123456'
 })
 
 async function handleLogin() {
