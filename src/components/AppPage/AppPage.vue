@@ -1,12 +1,12 @@
 <template>
   <wd-config-provider :theme="themeStore.theme" custom-class="app-page">
     <slot />
+    <AppTabbar />
   </wd-config-provider>
 </template>
 
 <script setup lang="ts">
 import { useThemeStore } from '@/stores/theme'
-
 const themeStore = useThemeStore()
 </script>
 

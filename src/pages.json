@@ -15,21 +15,5 @@
 	],
 	"globalStyle": {
 		"navigationStyle": "custom"
-	},
-	"tabBar": {
-		"color": "#8c8c8c",
-		"selectedColor": "#4480ff",
-		"backgroundColor": "#ffffff",
-		"borderStyle": "white",
-		"list": [
-			{
-				"pagePath": "pages/index/index",
-				"text": "首页"
-			},
-			{
-				"pagePath": "pages/my/my",
-				"text": "我的"
-			}
-		]
 	}
 }
