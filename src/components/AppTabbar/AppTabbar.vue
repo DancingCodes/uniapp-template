@@ -5,20 +5,28 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-const tabs = [
-  { name: 'index', title: '首页', icon: 'home', path: '/pages/index/index' },
-  { name: 'my', title: '我的', icon: 'user', path: '/pages/my/my' }
+const { t } = useI18n()
+
+const tabDefinitions = [
+  { name: 'index', titleKey: 'tabs.home', icon: 'home', path: '/pages/index/index' },
+  { name: 'my', titleKey: 'tabs.my', icon: 'user', path: '/pages/my/my' }
 ]
+
+const tabs = computed(() => tabDefinitions.map((tab) => ({
+  ...tab,
+  title: t(tab.titleKey)
+})))
 
 const pages = getCurrentPages()
 const currentPage = pages[pages.length - 1]
-const currentTab = tabs.find((tab) => tab.path.slice(1) === currentPage?.route)
-const activeTab = ref(currentTab?.name ?? tabs[0].name)
+const currentTab = tabDefinitions.find((tab) => tab.path.slice(1) === currentPage?.route)
+const activeTab = ref(currentTab?.name ?? tabDefinitions[0].name)
 
 function handleBeforeChange(value: string | number) {
-  const tab = tabs.find((item) => item.name === String(value))
+  const tab = tabDefinitions.find((item) => item.name === String(value))
   if (!tab) return false
 
   uni.reLaunch({
