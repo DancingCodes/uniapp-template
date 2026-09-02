@@ -1,13 +1,25 @@
 <template>
-    <wd-config-provider theme="dark" custom-class="app-page">
-        <slot />
-    </wd-config-provider>
+  <wd-config-provider :theme="themeStore.theme" custom-class="app-page">
+    <slot />
+  </wd-config-provider>
 </template>
+
+<script setup lang="ts">
+import { onMounted } from 'vue'
+import { useThemeStore } from '@/stores/theme'
+
+const themeStore = useThemeStore()
+
+onMounted(() => {
+  themeStore.syncTabBarTheme()
+})
+</script>
 
 <style lang="scss">
 .app-page {
-    height: 100%;
-    background-color: var(--wot-filled-bottom);
-    color: var(--wot-text-main);
+  height: 100%;
+  box-sizing: border-box;
+  background-color: var(--wot-filled-bottom);
+  color: var(--wot-text-main);
 }
 </style>
