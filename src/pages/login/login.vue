@@ -40,9 +40,7 @@ async function handleLogin() {
   loading.value = true
   const [error, response] = await to(login(form))
   loading.value = false
-
-  if (error || !response) return
-
+  if (error) return
   userStore.setAuth(response.data.token, response.data.user)
   uni.reLaunch({ url: '/pages/index/index' })
 }
