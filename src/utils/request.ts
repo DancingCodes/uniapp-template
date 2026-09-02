@@ -32,6 +32,11 @@ export function request<T>(url: string, method: Method, data?: RequestData) {
           if (result.code === 401) {
             useUserStore().clearAuth()
           }
+
+          uni.showToast({
+            title: result.message,
+            icon: 'none'
+          })
           reject(response)
         }
       },

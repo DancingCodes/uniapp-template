@@ -13,7 +13,12 @@ export default {
   },
   my: {
     settings: 'Settings',
-    logout: 'Log out'
+    logout: 'Log out',
+    logoutConfirm: 'Are you sure you want to log out?',
+    confirm: 'Confirm',
+    cancel: 'Cancel',
+    loginPrompt: 'Tap to log in',
+    defaultUser: 'User'
   },
   tabs: {
     home: 'Home',

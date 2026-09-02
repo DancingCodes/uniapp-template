@@ -13,7 +13,12 @@ export default {
   },
   my: {
     settings: '设置',
-    logout: '退出登录'
+    logout: '退出登录',
+    logoutConfirm: '确定要退出登录吗？',
+    confirm: '确定',
+    cancel: '取消',
+    loginPrompt: '点击登录',
+    defaultUser: '用户'
   },
   tabs: {
     home: '首页',

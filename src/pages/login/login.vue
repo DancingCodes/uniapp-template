@@ -42,7 +42,7 @@ async function handleLogin() {
     userStore.setAuth(response.data.token, response.data.user)
     uni.reLaunch({ url: '/pages/index/index' })
   } catch {
-    uni.showToast({ title: t('login.failed'), icon: 'none' })
+    // 请求层负责显示接口错误提示
   } finally {
     loading.value = false
   }
