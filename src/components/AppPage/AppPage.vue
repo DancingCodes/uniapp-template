@@ -3,12 +3,17 @@
     <view class="app-page-content">
       <slot />
     </view>
-    <AppTabbar />
+    <AppTabbar v-if="showTabbar" />
   </wd-config-provider>
 </template>
 
 <script setup lang="ts">
 import { useThemeStore } from '@/stores/theme'
+
+defineProps<{
+  showTabbar?: boolean
+}>()
+
 const themeStore = useThemeStore()
 </script>
 

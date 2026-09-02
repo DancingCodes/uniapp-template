@@ -8,5 +8,13 @@ export default {
     darkModeDescription: '使用 Wot UI 深色主题',
     language: '语言',
     languageDialogTitle: '选择语言'
+  },
+  login: {
+    title: '登录',
+    username: '用户名',
+    password: '密码',
+    submit: '登录',
+    required: '请输入用户名和密码',
+    failed: '登录失败'
   }
 }

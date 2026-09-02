@@ -1,18 +1,15 @@
 <template>
-  <AppPage>
-    <view class="page">
-      <wd-cell-group border>
-        <wd-cell :title="t('settings.darkMode')" :label="t('settings.darkModeDescription')" center>
-          <template #default>
-            <wd-switch v-model="isDark" size="36rpx" />
-          </template>
-        </wd-cell>
-        <wd-cell :title="t('settings.language')" :value="currentLocaleLabel" is-link @click="openLanguagePicker" />
-      </wd-cell-group>
-
-      <wd-select-picker ref="languagePicker" v-model="selectedLocale" type="radio" :columns="localeOptions"
-        :title="t('settings.languageDialogTitle')" @confirm="handleLocaleConfirm" />
-    </view>
+  <AppPage show-tabbar>
+    <wd-cell-group border>
+      <wd-cell :title="t('settings.darkMode')" :label="t('settings.darkModeDescription')" center>
+        <template #default>
+          <wd-switch v-model="isDark" size="36rpx" />
+        </template>
+      </wd-cell>
+      <wd-cell :title="t('settings.language')" :value="currentLocaleLabel" is-link @click="openLanguagePicker" />
+    </wd-cell-group>
+    <wd-select-picker ref="languagePicker" v-model="selectedLocale" type="radio" :columns="localeOptions"
+      :title="t('settings.languageDialogTitle')" @confirm="handleLocaleConfirm" />
   </AppPage>
 </template>
 
@@ -47,5 +44,3 @@ function handleLocaleConfirm(event: { value: string | number | boolean | (string
   setLocale(event.value)
 }
 </script>
-
-<style lang="scss" scoped></style>

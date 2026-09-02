@@ -10,6 +10,8 @@ npx degit dcloudio/uni-preset-vue#vite-ts ProjectName
 
 接口地址配置在 `.env.development` 和 `.env.production` 中，参考 `.env.example`。
 
+登录页位于 `pages/login/login`，Token 由 `stores/user` 管理，请求在返回 `401` 时自动清除登录态。
+
 ## 1. 安装依赖
 
 在项目根目录执行：
