@@ -12,7 +12,8 @@ export default {
     darkTheme: 'Dark'
   },
   my: {
-    settings: 'Settings'
+    settings: 'Settings',
+    logout: 'Log out'
   },
   tabs: {
     home: 'Home',

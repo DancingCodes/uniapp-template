@@ -31,10 +31,6 @@ const form = reactive({
 })
 
 async function handleLogin() {
-  uni.reLaunch({ url: '/pages/index/index' })
-  return
-
-
   if (!form.username || !form.password) {
     uni.showToast({ title: t('login.required'), icon: 'none' })
     return

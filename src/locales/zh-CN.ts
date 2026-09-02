@@ -12,7 +12,8 @@ export default {
     darkTheme: '深色'
   },
   my: {
-    settings: '设置'
+    settings: '设置',
+    logout: '退出登录'
   },
   tabs: {
     home: '首页',

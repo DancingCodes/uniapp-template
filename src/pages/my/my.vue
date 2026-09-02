@@ -7,14 +7,22 @@
 
     <wd-cell-group border insert>
       <wd-cell :title="t('my.settings')" is-link to="/pages/settings/settings" />
+      <wd-cell :title="t('my.logout')" is-link @click="handleLogout" />
     </wd-cell-group>
   </AppPage>
 </template>
 
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+import { useUserStore } from '@/stores/user'
 
 const { t } = useI18n()
+const userStore = useUserStore()
+
+function handleLogout() {
+  userStore.clearAuth()
+  uni.reLaunch({ url: '/pages/login/login' })
+}
 </script>
 
 <style lang="scss" scoped>
