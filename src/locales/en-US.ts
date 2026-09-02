@@ -1,4 +1,7 @@
 export default {
+  common: {
+    invalidResponse: 'Invalid response from the server'
+  },
   home: {
     welcomeTitle: 'Welcome to the uni-app template',
     welcomeDescription: 'Built with Vue 3, TypeScript, and Wot Design Uni.',
@@ -43,7 +46,6 @@ export default {
     password: 'Password',
     submit: 'Log in',
     required: 'Enter your username and password',
-    failed: 'Login failed',
-    invalidResponse: 'Invalid response from the server'
+    failed: 'Login failed'
   }
 }

@@ -1,4 +1,7 @@
 export default {
+  common: {
+    invalidResponse: '接口返回信息错误'
+  },
   home: {
     welcomeTitle: '欢迎使用 uni-app 模板',
     welcomeDescription: '基于 Vue 3、TypeScript 和 Wot Design Uni 构建。',
@@ -43,7 +46,6 @@ export default {
     password: '密码',
     submit: '登录',
     required: '请输入用户名和密码',
-    failed: '登录失败',
-    invalidResponse: '接口返回信息错误'
+    failed: '登录失败'
   }
 }

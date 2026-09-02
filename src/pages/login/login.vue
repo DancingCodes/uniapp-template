@@ -41,8 +41,8 @@ async function handleLogin() {
   const [error, data] = await to(login(form))
   loading.value = false
   if (error) return
-  if (!data) {
-    uni.showToast({ title: t('login.invalidResponse'), icon: 'none' })
+  if (!data?.token) {
+    uni.showToast({ title: t('common.invalidResponse'), icon: 'none' })
     return
   }
   userStore.setAuth(data.token, data.user)
