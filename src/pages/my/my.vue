@@ -1,19 +1,10 @@
 <template>
-  <view class="page">
-    <text class="title">我的</text>
-  </view>
+  <AppPage>
+    <wd-text :text="text"></wd-text>
+  </AppPage>
 </template>
 
-<style scoped>
-.page {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.title {
-  font-size: 36rpx;
-  color: #1f2937;
-}
-</style>
+<script setup lang="ts">
+import { ref } from 'vue';
+const text = ref('芦叶满汀洲，寒沙带浅流。二十年重过南楼。')
+</script>
