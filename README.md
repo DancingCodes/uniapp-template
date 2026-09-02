@@ -8,6 +8,8 @@ npx degit dcloudio/uni-preset-vue#vite-ts ProjectName
 
 当前内容是在基础模板之上进行 uni-app 版本更新，并按项目需要添加其他依赖。
 
+接口地址配置在 `.env.development` 和 `.env.production` 中，参考 `.env.example`。
+
 ## 1. 安装依赖
 
 在项目根目录执行：
