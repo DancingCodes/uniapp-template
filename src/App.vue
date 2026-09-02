@@ -9,7 +9,7 @@ onLaunch(() => {
 @use '@wot-ui/ui/styles/theme/index.scss';
 
 page {
-  height: 100vh;
+  height: 100%;
   padding-bottom: constant(safe-area-inset-bottom);
   padding-bottom: env(safe-area-inset-bottom);
   box-sizing: border-box;

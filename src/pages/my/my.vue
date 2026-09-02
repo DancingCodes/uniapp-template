@@ -1,6 +1,5 @@
 <template>
   <AppPage>
-    <wd-text :text="text"></wd-text>
   </AppPage>
 </template>
 
