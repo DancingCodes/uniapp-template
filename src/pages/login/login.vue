@@ -17,6 +17,7 @@
 </template>
 
 <script setup lang="ts">
+import to from 'await-to-js'
 import { reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { login } from '@/api/auth'
@@ -37,15 +38,13 @@ async function handleLogin() {
   }
 
   loading.value = true
-  try {
-    const response = await login(form)
-    userStore.setAuth(response.data.token, response.data.user)
-    uni.reLaunch({ url: '/pages/index/index' })
-  } catch {
-    // 请求层负责显示接口错误提示
-  } finally {
-    loading.value = false
-  }
+  const [error, response] = await to(login(form))
+  loading.value = false
+
+  if (error || !response) return
+
+  userStore.setAuth(response.data.token, response.data.user)
+  uni.reLaunch({ url: '/pages/index/index' })
 }
 </script>
 
