@@ -1,9 +1,25 @@
 export default {
+  home: {
+    welcomeTitle: 'Welcome to the uni-app template',
+    welcomeDescription: 'Built with Vue 3, TypeScript, and Wot Design Uni.',
+    projectStatus: 'Project overview',
+    framework: 'Stack',
+    frameworkValue: 'uni-app + Vue 3 + TypeScript',
+    uiLibrary: 'UI library',
+    uiLibraryValue: 'Wot Design Uni',
+    theme: 'Current theme',
+    lightTheme: 'Light',
+    darkTheme: 'Dark'
+  },
+  my: {
+    settings: 'Settings'
+  },
   tabs: {
     home: 'Home',
     my: 'My'
   },
   settings: {
+    title: 'Settings',
     darkMode: 'Dark mode',
     darkModeDescription: 'Use the Wot UI dark theme',
     language: 'Language',

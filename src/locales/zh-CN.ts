@@ -1,9 +1,25 @@
 export default {
+  home: {
+    welcomeTitle: '欢迎使用 uni-app 模板',
+    welcomeDescription: '基于 Vue 3、TypeScript 和 Wot Design Uni 构建。',
+    projectStatus: '项目概览',
+    framework: '技术栈',
+    frameworkValue: 'uni-app + Vue 3 + TypeScript',
+    uiLibrary: '组件库',
+    uiLibraryValue: 'Wot Design Uni',
+    theme: '当前主题',
+    lightTheme: '浅色',
+    darkTheme: '深色'
+  },
+  my: {
+    settings: '设置'
+  },
   tabs: {
     home: '首页',
     my: '我的'
   },
   settings: {
+    title: '设置',
     darkMode: '深色模式',
     darkModeDescription: '使用 Wot UI 深色主题',
     language: '语言',

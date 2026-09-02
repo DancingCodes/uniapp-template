@@ -1,5 +1,6 @@
 <template>
   <wd-config-provider :theme="themeStore.theme" :theme-vars="themeStore.themeVars" custom-class="app-page">
+    <AppNavbar v-if="title" :title="title" />
     <view class="app-page-content">
       <slot />
     </view>
@@ -11,6 +12,7 @@
 import { useThemeStore } from '@/stores/theme'
 
 defineProps<{
+  title?: string
   showTabbar?: boolean
 }>()
 
