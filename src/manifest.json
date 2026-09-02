@@ -54,6 +54,11 @@
     "mp-baidu": {
         "usingComponents": true
     },
+    "h5": {
+        "router": {
+            "mode": "history"
+        }
+    },
     "mp-toutiao": {
         "usingComponents": true
     },
