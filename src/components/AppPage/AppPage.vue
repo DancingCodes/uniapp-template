@@ -1,6 +1,8 @@
 <template>
   <wd-config-provider :theme="themeStore.theme" custom-class="app-page">
-    <slot />
+    <view class="app-page-content">
+      <slot />
+    </view>
     <AppTabbar />
   </wd-config-provider>
 </template>
@@ -13,8 +15,13 @@ const themeStore = useThemeStore()
 <style lang="scss">
 .app-page {
   height: 100%;
-  box-sizing: border-box;
-  background-color: var(--wot-filled-bottom);
-  color: var(--wot-text-main);
+  display: flex;
+  flex-direction: column;
+
+  .app-page-content {
+    flex: 1;
+    background-color: var(--wot-filled-bottom);
+    color: var(--wot-text-main);
+  }
 }
 </style>

@@ -1,12 +1,5 @@
 <template>
-  <wd-tabbar
-    v-model="activeTab"
-    fixed
-    placeholder
-    safe-area-inset-bottom
-    bordered
-    :before-change="handleBeforeChange"
-  >
+  <wd-tabbar v-model="activeTab" bordered :before-change="handleBeforeChange">
     <wd-tabbar-item v-for="tab in tabs" :key="tab.name" :name="tab.name" :title="tab.title" :icon="tab.icon" />
   </wd-tabbar>
 </template>
