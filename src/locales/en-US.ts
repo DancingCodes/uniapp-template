@@ -16,6 +16,8 @@ export default {
   },
   my: {
     settings: 'Settings',
+    mockUnauthorized: 'Mock unauthorized API',
+    mockServerError: 'Mock server error API',
     logout: 'Log out',
     logoutConfirm: 'Are you sure you want to log out?',
     confirm: 'Confirm',

@@ -45,5 +45,13 @@ export async function mockRequest<T>(
       : { code: 401, data: null as T, message: '登录已过期，请重新登录' }
   }
 
+  if (url === '/mock/401' && method === 'GET') {
+    return { code: 401, data: null as T, message: '模拟未授权' }
+  }
+
+  if (url === '/mock/500' && method === 'GET') {
+    return { code: 500, data: null as T, message: '模拟服务器错误' }
+  }
+
   return { code: 404, data: null as T, message: `Mock endpoint not found: ${method} ${url}` }
 }

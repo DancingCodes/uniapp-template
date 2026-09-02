@@ -5,7 +5,7 @@ const TOKEN_KEY = 'auth-token'
 
 const baseURL = import.meta.env.VITE_API_BASE_URL
 const requestMode = import.meta.env.VITE_API_MODE
-const useMock = requestMode ? requestMode === 'mock' : import.meta.env.DEV
+const useMock = requestMode === 'mock'
 
 export type Method = 'GET' | 'POST' | 'PUT' | 'DELETE'
 export type RequestData = UniNamespace.RequestOptions['data']
@@ -30,6 +30,7 @@ export function request<T>(url: string, method: Method, data?: RequestData) {
 
       if (result.code === 401) {
         useUserStore().clearAuth()
+        uni.reLaunch({ url: '/pages/login/login' })
       }
 
       uni.showToast({
@@ -57,6 +58,7 @@ export function request<T>(url: string, method: Method, data?: RequestData) {
         } else {
           if (result.code === 401) {
             useUserStore().clearAuth()
+            uni.reLaunch({ url: '/pages/login/login' })
           }
 
           uni.showToast({

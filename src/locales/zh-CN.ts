@@ -16,6 +16,8 @@ export default {
   },
   my: {
     settings: '设置',
+    mockUnauthorized: '模拟未授权接口',
+    mockServerError: '模拟服务器错误接口',
     logout: '退出登录',
     logoutConfirm: '确定要退出登录吗？',
     confirm: '确定',
