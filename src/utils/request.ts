@@ -14,7 +14,7 @@ export interface ApiResponse<T> {
 }
 
 export function request<T>(url: string, method: Method, data?: RequestData) {
-  return new Promise<ApiResponse<T>>((resolve, reject) => {
+  return new Promise<T>((resolve, reject) => {
     const token = uni.getStorageSync(TOKEN_KEY)
 
     uni.request({
@@ -27,7 +27,7 @@ export function request<T>(url: string, method: Method, data?: RequestData) {
       success: (response) => {
         const result = response.data as ApiResponse<T>
         if (result.code === 200) {
-          resolve(result)
+          resolve(result.data)
         } else {
           if (result.code === 401) {
             useUserStore().clearAuth()

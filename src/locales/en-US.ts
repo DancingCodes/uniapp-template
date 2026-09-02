@@ -43,6 +43,7 @@ export default {
     password: 'Password',
     submit: 'Log in',
     required: 'Enter your username and password',
-    failed: 'Login failed'
+    failed: 'Login failed',
+    invalidResponse: 'Invalid response from the server'
   }
 }

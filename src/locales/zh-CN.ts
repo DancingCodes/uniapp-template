@@ -43,6 +43,7 @@ export default {
     password: '密码',
     submit: '登录',
     required: '请输入用户名和密码',
-    failed: '登录失败'
+    failed: '登录失败',
+    invalidResponse: '接口返回信息错误'
   }
 }

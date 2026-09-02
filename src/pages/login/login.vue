@@ -38,10 +38,14 @@ async function handleLogin() {
   }
 
   loading.value = true
-  const [error, response] = await to(login(form))
+  const [error, data] = await to(login(form))
   loading.value = false
   if (error) return
-  userStore.setAuth(response.data.token, response.data.user)
+  if (!data) {
+    uni.showToast({ title: t('login.invalidResponse'), icon: 'none' })
+    return
+  }
+  userStore.setAuth(data.token, data.user)
   uni.reLaunch({ url: '/pages/index/index' })
 }
 </script>
