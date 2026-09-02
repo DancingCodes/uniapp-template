@@ -7,7 +7,11 @@ export default {
     darkMode: 'Dark mode',
     darkModeDescription: 'Use the Wot UI dark theme',
     language: 'Language',
-    languageDialogTitle: 'Select language'
+    languageDialogTitle: 'Select language',
+    style: 'Interface style',
+    styleDialogTitle: 'Select interface style',
+    iosStyle: 'iOS style',
+    softStyle: 'Soft rounded style'
   },
   login: {
     title: 'Login',

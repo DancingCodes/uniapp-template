@@ -1,5 +1,5 @@
 <template>
-  <wd-config-provider :theme="themeStore.theme" custom-class="app-page">
+  <wd-config-provider :theme="themeStore.theme" :theme-vars="themeStore.themeVars" custom-class="app-page">
     <view class="app-page-content">
       <slot />
     </view>

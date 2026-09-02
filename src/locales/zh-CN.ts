@@ -7,7 +7,11 @@ export default {
     darkMode: '深色模式',
     darkModeDescription: '使用 Wot UI 深色主题',
     language: '语言',
-    languageDialogTitle: '选择语言'
+    languageDialogTitle: '选择语言',
+    style: '界面风格',
+    styleDialogTitle: '选择界面风格',
+    iosStyle: 'iOS 风格',
+    softStyle: '圆润轻量风格'
   },
   login: {
     title: '登录',
