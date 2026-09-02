@@ -11,7 +11,9 @@ export default {
     style: '界面风格',
     styleDialogTitle: '选择界面风格',
     iosStyle: 'iOS 风格',
-    softStyle: '圆润轻量风格'
+    materialStyle: 'Material 风格',
+    roundedStyle: '圆润风格',
+    compactStyle: '紧凑风格'
   },
   login: {
     title: '登录',

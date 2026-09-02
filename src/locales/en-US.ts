@@ -11,7 +11,9 @@ export default {
     style: 'Interface style',
     styleDialogTitle: 'Select interface style',
     iosStyle: 'iOS style',
-    softStyle: 'Soft rounded style'
+    materialStyle: 'Material style',
+    roundedStyle: 'Rounded style',
+    compactStyle: 'Compact style'
   },
   login: {
     title: 'Login',

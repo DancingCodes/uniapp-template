@@ -1,6 +1,6 @@
 <template>
   <AppPage show-tabbar>
-    <wd-cell-group border>
+    <wd-cell-group border insert>
       <wd-cell :title="t('settings.darkMode')" :label="t('settings.darkModeDescription')" center>
         <template #default>
           <wd-switch v-model="isDark" size="36rpx" />
@@ -39,7 +39,9 @@ const selectedStyle = ref<AppStyle>(style.value)
 const stylePicker = ref<{ open: () => void }>()
 const styleOptions = computed(() => [
   { value: 'ios', label: t('settings.iosStyle') },
-  { value: 'soft', label: t('settings.softStyle') }
+  { value: 'material', label: t('settings.materialStyle') },
+  { value: 'rounded', label: t('settings.roundedStyle') },
+  { value: 'compact', label: t('settings.compactStyle') }
 ])
 const currentStyleLabel = computed(() => styleOptions.value.find((item) => item.value === selectedStyle.value)?.label)
 
@@ -58,9 +60,7 @@ function handleLocaleConfirm(event: { value: string | number | boolean | (string
   setLocale(event.value)
 }
 
-function handleStyleConfirm(event: { value: string | number | boolean | (string | number | boolean)[] }) {
-  if (event.value !== 'ios' && event.value !== 'soft') return
-
+function handleStyleConfirm(event: { value: AppStyle }) {
   selectedStyle.value = event.value
   themeStore.setStyle(event.value)
 }
