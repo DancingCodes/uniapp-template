@@ -22,6 +22,9 @@ const themeStore = useThemeStore()
     flex: 1;
     background-color: var(--wot-filled-bottom);
     color: var(--wot-text-main);
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
   }
 }
 </style>
