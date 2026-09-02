@@ -19,7 +19,8 @@
 - 使用 `AppPage` 统一页面容器；页面导航使用 `AppNavbar`，底部导航使用 `AppTabbar`。
 - 设置页使用 `AppPage` 的 `title` 显示导航栏，TabBar 页面传入 `showTabbar`。
 - API 按业务模块放在 `src/api`，页面通过 API 模块调用，不直接拼接请求。
-- `src/utils/request.ts` 统一处理请求、Token 和错误提示，成功条件按后端返回的 `result.code === 200` 判断。
+- `src/utils/request.ts` 统一处理请求、Token 和错误提示，成功条件按后端返回的 `result.code === 200` 判断，并直接返回 `result.data`。
+- 公共请求层不判断 `data` 是否为空；部分成功接口可以返回 `null`，由具体 API 的调用方校验业务必需字段。
 - 异步请求优先使用 `await-to-js` 的 `[error, data]` 写法，避免重复的 `try...catch`。
 - 请求错误统一使用 `uni.showToast` 提示；页面不重复解析接口错误响应。
 - 修改后运行 `npm run type-check`，不主动执行耗时的打包命令。
