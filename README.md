@@ -1,16 +1,10 @@
 # uniapp-template
 
-本项目通过以下命令基于官方模板初始化：
+本项目通过以下命令基于官方模板初始化
 
 ```bash
 npx degit dcloudio/uni-preset-vue#vite-ts ProjectName
 ```
-
-当前内容是在基础模板之上进行 uni-app 版本更新，并按项目需要添加其他依赖。
-
-接口地址配置在 `.env.development` 和 `.env.production` 中，参考 `.env.example`。
-
-登录页位于 `pages/login/login`，Token 由 `stores/user` 管理，请求在返回 `401` 时自动清除登录态。
 
 ## 1. 安装依赖
 
@@ -20,16 +14,7 @@ npx degit dcloudio/uni-preset-vue#vite-ts ProjectName
 npm install
 ```
 
-## 2. 更新 uni-app 正式版依赖
-
-使用 UVM 更新到最新稳定版：
-
-```bash
-npx @dcloudio/uvm@latest
-npm install
-```
-
-## 3. 控制台漏洞说明
+## 2. 控制台漏洞说明
 
 安装后看到较多 `npm warn deprecated` 或 `npm audit` 漏洞提示，主要原因是：
 
