@@ -9,20 +9,8 @@
     <wd-cell-group border insert>
       <wd-cell :title="t('my.settings')" is-link to="/pages/settings/settings" />
       <template v-if="isMockMode">
-        <wd-cell :title="t('my.mockUnauthorized')">
-          <template #default>
-            <wd-button size="small" type="warning" :loading="unauthorizedLoading" @click="handleMockUnauthorized">
-              401
-            </wd-button>
-          </template>
-        </wd-cell>
-        <wd-cell :title="t('my.mockServerError')">
-          <template #default>
-            <wd-button size="small" type="danger" :loading="serverErrorLoading" @click="handleMockServerError">
-              500
-            </wd-button>
-          </template>
-        </wd-cell>
+        <wd-cell :title="t('my.mockUnauthorized')" is-link @click="handleMockUnauthorized" />
+        <wd-cell :title="t('my.mockServerError')" is-link @click="handleMockServerError" />
       </template>
       <wd-cell v-if="userStore.isLoggedIn" :title="t('my.logout')" is-link @click="handleLogout" />
     </wd-cell-group>
@@ -32,7 +20,7 @@
 
 <script setup lang="ts">
 import to from 'await-to-js'
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { mockServerError, mockUnauthorized } from '@/api/mock'
 import { useUserStore } from '@/stores/user'
@@ -40,8 +28,6 @@ import { useUserStore } from '@/stores/user'
 const { t } = useI18n()
 const userStore = useUserStore()
 const isMockMode = import.meta.env.VITE_API_MODE === 'mock'
-const unauthorizedLoading = ref(false)
-const serverErrorLoading = ref(false)
 const displayName = computed(() => userStore.user?.nickname || userStore.user?.username || t('my.defaultUser'))
 
 function goToLogin() {
@@ -49,15 +35,11 @@ function goToLogin() {
 }
 
 async function handleMockUnauthorized() {
-  unauthorizedLoading.value = true
   await to(mockUnauthorized())
-  unauthorizedLoading.value = false
 }
 
 async function handleMockServerError() {
-  serverErrorLoading.value = true
   await to(mockServerError())
-  serverErrorLoading.value = false
 }
 
 function handleLogout() {
