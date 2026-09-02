@@ -1,6 +1,8 @@
 import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
-import { getStorage, removeStorage, setStorage, TOKEN_KEY, USER_KEY } from '@/utils/storage'
+
+const TOKEN_KEY = 'auth-token'
+const USER_KEY = 'auth-user'
 
 export interface UserInfo {
   id?: string | number
@@ -10,25 +12,25 @@ export interface UserInfo {
 }
 
 export const useUserStore = defineStore('user', () => {
-  const token = ref<string | null>(getStorage<string>(TOKEN_KEY))
-  const user = ref<UserInfo | null>(getStorage<UserInfo>(USER_KEY))
+  const token = ref<string | null>(uni.getStorageSync(TOKEN_KEY) || null)
+  const user = ref<UserInfo | null>(uni.getStorageSync(USER_KEY) || null)
   const isLoggedIn = computed(() => Boolean(token.value))
 
   function setAuth(nextToken: string, nextUser?: UserInfo) {
     token.value = nextToken
-    setStorage(TOKEN_KEY, nextToken)
+    uni.setStorageSync(TOKEN_KEY, nextToken)
 
     if (nextUser) {
       user.value = nextUser
-      setStorage(USER_KEY, nextUser)
+      uni.setStorageSync(USER_KEY, nextUser)
     }
   }
 
   function clearAuth() {
     token.value = null
     user.value = null
-    removeStorage(TOKEN_KEY)
-    removeStorage(USER_KEY)
+    uni.removeStorageSync(TOKEN_KEY)
+    uni.removeStorageSync(USER_KEY)
   }
 
   return {

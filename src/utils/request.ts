@@ -1,5 +1,6 @@
 import { useUserStore } from '@/stores/user'
-import { getStorage, TOKEN_KEY } from '@/utils/storage'
+
+const TOKEN_KEY = 'auth-token'
 
 const baseURL = import.meta.env.VITE_API_BASE_URL
 
@@ -14,7 +15,7 @@ export interface ApiResponse<T> {
 
 export function request<T>(url: string, method: Method, data?: RequestData) {
   return new Promise<ApiResponse<T>>((resolve, reject) => {
-    const token = getStorage<string>(TOKEN_KEY)
+    const token = uni.getStorageSync(TOKEN_KEY)
 
     uni.request({
       url: `${baseURL}${url}`,
