@@ -1,9 +1,18 @@
 <template>
   <AppPage>
-    <text>{{ t('login.title') }}</text>
-    <wd-input v-model="form.username" :placeholder="t('login.username')" clearable />
-    <wd-input v-model="form.password" :placeholder="t('login.password')" type="safe-password" show-password clearable />
-    <wd-button block :loading="loading" @click="handleLogin">{{ t('login.submit') }}</wd-button>
+    <view class="login-page">
+      <text class="login-page__title">{{ t('login.title') }}</text>
+      <wd-cell-group border>
+        <wd-cell>
+          <wd-input v-model="form.username" :placeholder="t('login.username')" clearable />
+        </wd-cell>
+        <wd-cell>
+          <wd-input v-model="form.password" :placeholder="t('login.password')" type="safe-password" show-password
+            clearable />
+        </wd-cell>
+      </wd-cell-group>
+      <wd-button block :loading="loading" @click="handleLogin">{{ t('login.submit') }}</wd-button>
+    </view>
   </AppPage>
 </template>
 
@@ -39,3 +48,22 @@ async function handleLogin() {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.login-page {
+  padding-top: 160rpx;
+
+  &__title {
+    display: block;
+    margin-bottom: 40rpx;
+    color: var(--wot-text-main);
+    font-size: 48rpx;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .wd-button {
+    margin-top: 32rpx;
+  }
+}
+</style>

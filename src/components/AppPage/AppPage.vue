@@ -25,6 +25,8 @@ const themeStore = useThemeStore()
 
   .app-page-content {
     flex: 1;
+    padding: 20rpx;
+    box-sizing: border-box;
     background-color: var(--wot-filled-bottom);
     color: var(--wot-text-main);
     overflow-y: auto;
