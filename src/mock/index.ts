@@ -53,5 +53,18 @@ export async function mockRequest<T>(
     return { code: 500, data: null as T, message: '模拟服务器错误' }
   }
 
+  if (url === '/files/upload' && method === 'POST') {
+    const params = (data || {}) as { name?: string; size?: number }
+    return {
+      code: 200,
+      data: {
+        name: params.name || 'mock-file',
+        size: params.size,
+        url: 'https://example.com/mock-file'
+      } as T,
+      message: 'ok'
+    }
+  }
+
   return { code: 404, data: null as T, message: `Mock endpoint not found: ${method} ${url}` }
 }

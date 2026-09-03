@@ -17,6 +17,9 @@
 		},
 		{
 			"path": "pages/settings/settings"
+		},
+		{
+			"path": "pages/files/files"
 		}
 	],
 	"globalStyle": {

@@ -8,6 +8,7 @@
 
     <wd-cell-group border insert>
       <wd-cell :title="t('my.settings')" is-link to="/pages/settings/settings" />
+      <wd-cell :title="t('my.files')" is-link to="/pages/files/files" />
       <template v-if="isMockMode">
         <wd-cell :title="t('my.mockUnauthorized')" is-link @click="handleMockUnauthorized" />
         <wd-cell :title="t('my.mockServerError')" is-link @click="handleMockServerError" />
