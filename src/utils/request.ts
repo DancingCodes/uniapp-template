@@ -31,8 +31,7 @@ export function request<T>(url: string, method: Method, data?: RequestData, head
           resolve(result.data)
         } else {
           if (result.code === 401) {
-            useUserStore().clearAuth()
-            uni.reLaunch({ url: '/pages/login/login' })
+            useUserStore().logout()
           }
 
           uni.showToast({

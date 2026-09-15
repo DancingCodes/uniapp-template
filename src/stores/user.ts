@@ -33,11 +33,17 @@ export const useUserStore = defineStore('user', () => {
     uni.removeStorageSync(USER_KEY)
   }
 
+  function logout() {
+    clearAuth()
+    uni.reLaunch({ url: '/pages/login/login' })
+  }
+
   return {
     token,
     user,
     isLoggedIn,
     setAuth,
-    clearAuth
+    clearAuth,
+    logout
   }
 })

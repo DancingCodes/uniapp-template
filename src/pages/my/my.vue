@@ -43,8 +43,7 @@ async function handleLogout() {
   }).catch(() => null)
   if (result?.action !== 'confirm') return
 
-  userStore.clearAuth()
-  uni.reLaunch({ url: '/pages/login/login' })
+  userStore.logout()
 }
 </script>
 
