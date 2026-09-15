@@ -69,6 +69,9 @@ export default {
     empty: 'No file selected',
     unsupported: 'Generic file selection is only supported on H5',
     uploadFailed: 'Upload failed',
+    download: 'Download sample file',
+    downloaded: 'Download complete',
+    downloadFailed: 'Download failed',
     size: 'Size'
   }
 }

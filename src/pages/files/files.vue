@@ -16,6 +16,10 @@
           </template>
         </wd-cell>
       </wd-cell-group>
+
+      <wd-cell-group border insert>
+        <wd-cell :title="t('files.download')" is-link @click="handleDownload" />
+      </wd-cell-group>
     </view>
   </AppPage>
 </template>
@@ -24,7 +28,7 @@
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import type { UploadFileItem, UploadSuccessEvent, UploadErrorEvent, UploadMethod } from '@wot-ui/ui/components/wd-upload/types'
-import { uploadFile, type UploadData } from '@/api/file'
+import { uploadFile, downloadFile, type UploadData } from '@/api/file'
 
 const { t } = useI18n()
 const uploadAction = `${import.meta.env.VITE_API_BASE_URL}/files/upload`
@@ -49,5 +53,26 @@ function handleUploadSuccess(event: UploadSuccessEvent) {
 
 function handleUploadFail(_event: UploadErrorEvent) {
   uni.showToast({ title: t('files.uploadFailed'), icon: 'none' })
+}
+
+const downloadUrl = `${import.meta.env.VITE_API_BASE_URL}/files/download`
+
+function handleDownload() {
+  downloadFile(downloadUrl).then((res) => {
+    uni.openDocument({
+      filePath: res.tempFilePath,
+      showMenu: true,
+      fail: () => {
+        uni.saveFile({
+          tempFilePath: res.tempFilePath,
+          success: () => uni.showToast({ title: t('files.downloaded'), icon: 'success' }),
+          fail: () => uni.showToast({ title: t('files.downloadFailed'), icon: 'none' })
+        })
+      }
+    })
+    uni.showToast({ title: t('files.downloaded'), icon: 'success' })
+  }).catch(() => {
+    uni.showToast({ title: t('files.downloadFailed'), icon: 'none' })
+  })
 }
 </script>

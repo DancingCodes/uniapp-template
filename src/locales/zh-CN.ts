@@ -69,6 +69,9 @@ export default {
     empty: '尚未选择文件',
     unsupported: '当前平台不支持通用文件选择，请使用 H5',
     uploadFailed: '上传失败',
+    download: '下载示例文件',
+    downloaded: '下载成功',
+    downloadFailed: '下载失败',
     size: '大小'
   }
 }

@@ -11,6 +11,30 @@ export interface UploadData {
   url: string
 }
 
+export function downloadFile(url: string) {
+  return new Promise<UniApp.DownloadSuccessData>((resolve, reject) => {
+    const token = uni.getStorageSync('auth-token')
+
+    uni.downloadFile({
+      url,
+      header: {
+        ...(token ? { Authorization: `Bearer ${token}` } : {})
+      },
+      success: (res) => {
+        if (res.statusCode === 200) {
+          resolve(res)
+        } else {
+          if (res.statusCode === 401) {
+            useUserStore().logout()
+          }
+          reject(res)
+        }
+      },
+      fail: reject
+    })
+  })
+}
+
 export function uploadFile(params: UploadParams) {
   return new Promise<UploadData>((resolve, reject) => {
     const token = uni.getStorageSync('auth-token')
