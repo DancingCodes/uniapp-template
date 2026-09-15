@@ -2,11 +2,11 @@
   <AppPage :title="t('files.title')">
     <view class="files-page">
       <wd-cell-group border insert>
-        <wd-cell :title="t('files.upload')">
+        <wd-cell :title="t('files.upload')" layout="vertical">
           <template #default>
-            <wd-upload v-model:file-list="fileList" accept="all" :action="uploadAction" :limit="1"
-              :show-limit-num="false" :upload-method="customUpload" @success="handleUploadSuccess"
-              @fail="handleUploadFail" />
+            <wd-upload v-model:file-list="fileList" accept="image" :action="uploadAction" :limit="1"
+              custom-class="single-upload-button" :show-limit-num="false" :upload-method="customUpload"
+              @success="handleUploadSuccess" @fail="handleUploadFail" />
           </template>
         </wd-cell>
       </wd-cell-group>
@@ -44,5 +44,3 @@ function handleUploadFail(_event: UploadErrorEvent) {
   uni.showToast({ title: t('files.uploadFailed'), icon: 'none' })
 }
 </script>
-
-<style lang="scss" scoped></style>
