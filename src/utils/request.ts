@@ -17,7 +17,6 @@ export interface ApiResponse<T> {
 export function request<T>(url: string, method: Method, data?: RequestData, header?: UniNamespace.RequestOptions['header']) {
   return new Promise<T>((resolve, reject) => {
     const token = uni.getStorageSync(TOKEN_KEY)
-
     uni.request({
       url: `${baseURL}${url}`,
       method,

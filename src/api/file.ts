@@ -12,11 +12,11 @@ export interface UploadData {
   url: string
 }
 
-export function downloadFile(url: string) {
+export function downloadFile(url: string, onProgress?: (progress: number) => void) {
   return new Promise<string>((resolve, reject) => {
     const token = uni.getStorageSync('auth-token')
 
-    uni.downloadFile({
+    const task = uni.downloadFile({
       url,
       header: {
         'Accept-Language': i18n.global.locale.value,
@@ -60,6 +60,12 @@ export function downloadFile(url: string) {
       },
       fail: reject
     })
+
+    if (onProgress && task) {
+      task.onProgressUpdate((res) => {
+        onProgress(res.progress)
+      })
+    }
   })
 }
 
