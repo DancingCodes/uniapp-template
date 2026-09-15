@@ -1,5 +1,5 @@
 <template>
-  <wd-navbar :title="title" left-arrow bordered @click-left="goBack" />
+  <wd-navbar :title="title" left-arrow bordered safe-area-inset-top @click-left="goBack" />
 </template>
 
 <script setup lang="ts">

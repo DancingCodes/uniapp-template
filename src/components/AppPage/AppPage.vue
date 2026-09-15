@@ -22,6 +22,8 @@ const themeStore = useThemeStore()
 <style lang="scss">
 .app-page {
   height: 100%;
+  padding-top: var(--status-bar-height);
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
 

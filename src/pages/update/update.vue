@@ -81,36 +81,36 @@ function startDownload() {
 <style lang="scss" scoped>
 .update-page {
   padding: 40rpx 32rpx;
-}
 
-.update-page__info {
-  margin-bottom: 60rpx;
-}
+  &__info {
+    margin-bottom: 60rpx;
+  }
 
-.update-page__version {
-  display: block;
-  font-size: 36rpx;
-  font-weight: 600;
-  color: var(--wot-text-main);
-  margin-bottom: 20rpx;
-}
+  &__version {
+    display: block;
+    font-size: 36rpx;
+    font-weight: 600;
+    color: var(--wot-text-main);
+    margin-bottom: 20rpx;
+  }
 
-.update-page__desc {
-  display: block;
-  font-size: 28rpx;
-  color: var(--wot-text-secondary);
-  white-space: pre-wrap;
-}
+  &__desc {
+    display: block;
+    font-size: 28rpx;
+    color: var(--wot-text-secondary);
+    white-space: pre-wrap;
+  }
 
-.update-page__progress {
-  margin-top: 40rpx;
-}
+  &__progress {
+    margin-top: 40rpx;
+  }
 
-.update-page__status {
-  display: block;
-  margin-top: 16rpx;
-  font-size: 26rpx;
-  color: var(--wot-text-secondary);
-  text-align: center;
+  &__status {
+    display: block;
+    margin-top: 16rpx;
+    font-size: 26rpx;
+    color: var(--wot-text-secondary);
+    text-align: center;
+  }
 }
 </style>
