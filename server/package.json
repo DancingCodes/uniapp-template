@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "npx --yes listhen -w ./app.ts"
+    "dev": "npx --yes listhen -w --host 0.0.0.0 ./app.ts"
   },
   "dependencies": {
     "h3": "^1.15.3",

@@ -5,7 +5,17 @@ import uploadHandler from './routes/files/upload.post'
 import downloadHandler from './routes/files/download.get'
 import versionHandler from './routes/app/version.get'
 
-export const app = createApp()
+export const app = createApp({
+  onRequest(event) {
+    event.node.res.setHeader('Access-Control-Allow-Origin', '*')
+    event.node.res.setHeader('Access-Control-Allow-Methods', '*')
+    event.node.res.setHeader('Access-Control-Allow-Headers', '*')
+    if (event.method === 'OPTIONS') {
+      event.node.res.statusCode = 204
+      event.node.res.end()
+    }
+  }
+})
 
 const router = createRouter()
     .post('/auth/login', loginHandler)

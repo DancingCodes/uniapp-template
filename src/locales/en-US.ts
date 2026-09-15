@@ -84,6 +84,7 @@ export default {
     downloadFailed: 'Download failed',
     installFailed: 'Install failed',
     failed: 'Update failed',
+    downloadComplete: 'Download complete, installing',
     mpReady: 'A new version is ready. Restart now?'
   }
 }

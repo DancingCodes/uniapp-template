@@ -84,6 +84,7 @@ export default {
     downloadFailed: '下载失败',
     installFailed: '安装失败',
     failed: '更新失败',
+    downloadComplete: '下载完成，准备安装',
     mpReady: '新版本已准备好，是否重启应用？'
   }
 }

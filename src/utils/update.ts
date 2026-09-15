@@ -1,6 +1,5 @@
 import { i18n } from '@/locales'
 import { getVersion } from '@/api/app'
-import { downloadFile } from '@/api/file'
 
 function t(key: string) {
   return i18n.global.t(key)
@@ -41,7 +40,8 @@ export function checkUpdate() {
 
   // #ifdef APP-PLUS
   getVersion().then((data) => {
-    const currentVersion = plus.runtime.version || '0.0.0'
+	  // const currentVersion = plus.runtime.version || '0.0.0'
+    const currentVersion = '0.0.0'
     if (compareVersion(data.version, currentVersion) <= 0) return
 
     const content = data.description
@@ -50,19 +50,47 @@ export function checkUpdate() {
 
     function startDownload() {
       uni.showToast({ title: t('update.backgroundDownload'), icon: 'none' })
+
+      const notification = plus.push.createMessage(
+        `${t('update.downloading')} 0%`,
+        'update_progress',
+        { cover: true, when: new Date() }
+      )
+
       const task = plus.downloader.createDownload(data.downloadUrl, {
         filename: '_doc/update/app.apk'
       }, (download, status) => {
         if (status === 200) {
+          plus.push.createMessage(
+            t('update.downloadComplete'),
+            'update_complete',
+            { cover: true, when: new Date() }
+          )
           plus.runtime.install(download.filename!, { force: true }, () => {
             plus.runtime.restart()
           }, () => {
             uni.showToast({ title: t('update.installFailed'), icon: 'none' })
           })
         } else {
-          uni.showToast({ title: t('update.downloadFailed'), icon: 'none' })
+          plus.push.createMessage(
+            t('update.downloadFailed'),
+            'update_failed',
+            { cover: true, when: new Date() }
+          )
         }
       })
+
+      task.addEventListener('statechanged', (download) => {
+        if (download.downloadedSize && download.totalSize) {
+          const progress = Math.round((download.downloadedSize / download.totalSize) * 100)
+          plus.push.createMessage(
+            `${t('update.downloading')} ${progress}%`,
+            'update_progress',
+            { cover: true, when: new Date() }
+          )
+        }
+      })
+
       task.start()
     }
 
