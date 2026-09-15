@@ -1,0 +1,12 @@
+{
+  "name": "uniapp-template-server",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes listhen -w ./app.ts"
+  },
+  "dependencies": {
+    "h3": "^1.15.3",
+    "listhen": "^1.9.0"
+  }
+}
