@@ -9,10 +9,6 @@
     <wd-cell-group border insert>
       <wd-cell :title="t('my.settings')" is-link to="/pages/settings/settings" />
       <wd-cell :title="t('my.files')" is-link to="/pages/files/files" />
-      <template v-if="isMockMode">
-        <wd-cell :title="t('my.mockUnauthorized')" is-link @click="handleMockUnauthorized" />
-        <wd-cell :title="t('my.mockServerError')" is-link @click="handleMockServerError" />
-      </template>
       <wd-cell v-if="userStore.isLoggedIn" :title="t('my.logout')" is-link @click="handleLogout" />
     </wd-cell-group>
 
@@ -22,16 +18,13 @@
 </template>
 
 <script setup lang="ts">
-import to from 'await-to-js'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useDialog } from '@wot-ui/ui'
-import { mockServerError, mockUnauthorized } from '@/api/mock'
 import { useUserStore } from '@/stores/user'
 
 const { t } = useI18n()
 const userStore = useUserStore()
-const isMockMode = import.meta.env.VITE_API_MODE === 'mock'
 const dialog = useDialog()
 const displayName = computed(() => userStore.user?.nickname || userStore.user?.username || t('my.defaultUser'))
 
@@ -39,22 +32,16 @@ function goToLogin() {
   uni.reLaunch({ url: '/pages/login/login' })
 }
 
-async function handleMockUnauthorized() {
-  await to(mockUnauthorized())
-}
-
-async function handleMockServerError() {
-  await to(mockServerError())
-}
-
 async function handleLogout() {
-  const [error, result] = await to(dialog.confirm({
-    title: t('my.logout'),
-    msg: t('my.logoutConfirm'),
-    confirmButtonText: t('my.confirm'),
-    cancelButtonText: t('my.cancel')
-  }))
-  if (error || result?.action !== 'confirm') return
+  const result = await new Promise<{ action: string }>((resolve, reject) => {
+    dialog.confirm({
+      title: t('my.logout'),
+      msg: t('my.logoutConfirm'),
+      confirmButtonText: t('my.confirm'),
+      cancelButtonText: t('my.cancel')
+    }).then(resolve).catch(reject)
+  }).catch(() => null)
+  if (result?.action !== 'confirm') return
 
   userStore.clearAuth()
   uni.reLaunch({ url: '/pages/login/login' })

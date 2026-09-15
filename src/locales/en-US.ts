@@ -17,8 +17,6 @@ export default {
   my: {
     settings: 'Settings',
     files: 'Files',
-    mockUnauthorized: 'Mock 401 error',
-    mockServerError: 'Mock 500 error',
     logout: 'Log out',
     logoutConfirm: 'Are you sure you want to log out?',
     confirm: 'Confirm',
@@ -54,14 +52,11 @@ export default {
   files: {
     title: 'Files',
     upload: 'Select and upload file',
-    download: 'Download sample file',
     selected: 'Selected file',
     uploaded: 'Upload complete',
-    downloaded: 'File is ready',
     empty: 'No file selected',
     unsupported: 'Generic file selection is only supported on H5',
     uploadFailed: 'Upload failed',
-    downloadFailed: 'Download failed',
     size: 'Size'
   }
 }

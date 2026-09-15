@@ -5,7 +5,7 @@
         <view class="home-page__description">{{ t('home.welcomeDescription') }}</view>
       </wd-card>
 
-      <wd-cell-group :title="t('home.projectStatus')" border insert>
+      <wd-cell-group title-width="100px" :title="t('home.projectStatus')" border insert>
         <wd-cell :title="t('home.framework')" :value="t('home.frameworkValue')" />
         <wd-cell :title="t('home.uiLibrary')" :value="t('home.uiLibraryValue')" />
         <wd-cell :title="t('home.theme')" :value="themeLabel" />

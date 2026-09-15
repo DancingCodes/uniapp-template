@@ -17,8 +17,6 @@ export default {
   my: {
     settings: '设置',
     files: '文件管理',
-    mockUnauthorized: '模拟 401 错误',
-    mockServerError: '模拟 500 错误',
     logout: '退出登录',
     logoutConfirm: '确定要退出登录吗？',
     confirm: '确定',
@@ -54,14 +52,11 @@ export default {
   files: {
     title: '文件管理',
     upload: '选择并上传文件',
-    download: '下载示例文件',
     selected: '已选择文件',
     uploaded: '上传成功',
-    downloaded: '文件已准备好',
     empty: '尚未选择文件',
     unsupported: '当前平台不支持通用文件选择，请使用 H5',
     uploadFailed: '上传失败',
-    downloadFailed: '下载失败',
     size: '大小'
   }
 }
