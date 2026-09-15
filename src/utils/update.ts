@@ -48,6 +48,24 @@ export function checkUpdate() {
       ? `${t('update.newVersion')}${data.version}\n\n${data.description}`
       : `${t('update.newVersion')}${data.version}`
 
+    function startDownload() {
+      uni.showToast({ title: t('update.backgroundDownload'), icon: 'none' })
+      const task = plus.downloader.createDownload(data.downloadUrl, {
+        filename: '_doc/update/app.apk'
+      }, (download, status) => {
+        if (status === 200) {
+          plus.runtime.install(download.filename!, { force: true }, () => {
+            plus.runtime.restart()
+          }, () => {
+            uni.showToast({ title: t('update.installFailed'), icon: 'none' })
+          })
+        } else {
+          uni.showToast({ title: t('update.downloadFailed'), icon: 'none' })
+        }
+      })
+      task.start()
+    }
+
     uni.showModal({
       title: t('update.title'),
       content,
@@ -55,22 +73,11 @@ export function checkUpdate() {
       confirmText: t('update.confirm'),
       cancelText: t('update.cancel'),
       success: (res) => {
-        if (res.confirm) {
-          uni.showLoading({ title: t('update.downloading'), mask: true })
-          downloadFile(data.downloadUrl).then((filePath) => {
-            uni.hideLoading()
-            plus.runtime.install(filePath, { force: true }, () => {
-              plus.runtime.restart()
-            }, () => {
-              uni.showToast({ title: t('update.installFailed'), icon: 'none' })
-            })
-          }).catch(() => {
-            uni.hideLoading()
-            uni.showToast({ title: t('update.downloadFailed'), icon: 'none' })
-          })
-        }
+        if (res.confirm) startDownload()
       }
     })
+
+    if (data.forceUpdate) startDownload()
   })
   // #endif
 }

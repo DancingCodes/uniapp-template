@@ -80,6 +80,7 @@ export default {
     confirm: 'Update Now',
     cancel: 'Later',
     downloading: 'Downloading...',
+    backgroundDownload: 'Downloading in background',
     downloadFailed: 'Download failed',
     installFailed: 'Install failed',
     failed: 'Update failed',

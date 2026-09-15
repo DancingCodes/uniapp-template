@@ -80,6 +80,7 @@ export default {
     confirm: '立即更新',
     cancel: '稍后再说',
     downloading: '正在下载...',
+    backgroundDownload: '开始后台下载，请稍候',
     downloadFailed: '下载失败',
     installFailed: '安装失败',
     failed: '更新失败',
