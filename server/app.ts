@@ -3,6 +3,7 @@ import loginHandler from './routes/auth/login.post'
 import registerHandler from './routes/auth/register.post'
 import uploadHandler from './routes/files/upload.post'
 import downloadHandler from './routes/files/download.get'
+import versionHandler from './routes/app/version.get'
 
 export const app = createApp()
 
@@ -11,5 +12,6 @@ const router = createRouter()
     .post('/auth/register', registerHandler)
     .post('/files/upload', uploadHandler)
     .get('/files/download', downloadHandler)
+    .get('/app/version', versionHandler)
 
 app.use(router)

@@ -73,5 +73,16 @@ export default {
     downloaded: '下载成功',
     downloadFailed: '下载失败',
     size: '大小'
+  },
+  update: {
+    title: '版本更新',
+    newVersion: '发现新版本 v',
+    confirm: '立即更新',
+    cancel: '稍后再说',
+    downloading: '正在下载...',
+    downloadFailed: '下载失败',
+    installFailed: '安装失败',
+    failed: '更新失败',
+    mpReady: '新版本已准备好，是否重启应用？'
   }
 }

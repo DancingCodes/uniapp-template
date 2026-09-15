@@ -73,5 +73,16 @@ export default {
     downloaded: 'Download complete',
     downloadFailed: 'Download failed',
     size: 'Size'
+  },
+  update: {
+    title: 'Update Available',
+    newVersion: 'New version v',
+    confirm: 'Update Now',
+    cancel: 'Later',
+    downloading: 'Downloading...',
+    downloadFailed: 'Download failed',
+    installFailed: 'Install failed',
+    failed: 'Update failed',
+    mpReady: 'A new version is ready. Restart now?'
   }
 }
