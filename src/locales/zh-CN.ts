@@ -47,7 +47,18 @@ export default {
     password: '密码',
     submit: '登录',
     required: '请输入用户名和密码',
-    failed: '登录失败'
+    failed: '登录失败',
+    noAccount: '没有账号？去注册'
+  },
+  register: {
+    title: '注册',
+    username: '用户名',
+    password: '密码',
+    confirmPassword: '确认密码',
+    submit: '注册',
+    required: '请填写用户名和密码',
+    passwordMismatch: '两次输入的密码不一致',
+    hasAccount: '已有账号？去登录'
   },
   files: {
     title: '文件管理',

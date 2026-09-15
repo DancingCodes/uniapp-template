@@ -16,5 +16,5 @@ export default async (event: H3Event) => {
     return { code: 200, data: { token: MOCK_TOKEN, user: mockUser }, message: 'ok' }
   }
 
-  return { code: 401, data: null, message: '用户名或密码错误' }
+  return { code: 500, data: null, message: '用户名或密码错误' }
 }

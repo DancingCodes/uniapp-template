@@ -47,7 +47,18 @@ export default {
     password: 'Password',
     submit: 'Log in',
     required: 'Enter your username and password',
-    failed: 'Login failed'
+    failed: 'Login failed',
+    noAccount: "Don't have an account? Sign up"
+  },
+  register: {
+    title: 'Sign up',
+    username: 'Username',
+    password: 'Password',
+    confirmPassword: 'Confirm password',
+    submit: 'Sign up',
+    required: 'Enter your username and password',
+    passwordMismatch: 'Passwords do not match',
+    hasAccount: 'Already have an account? Log in'
   },
   files: {
     title: 'Files',

@@ -12,6 +12,9 @@
         </wd-cell>
       </wd-cell-group>
       <wd-button block :loading="loading" @click="handleLogin">{{ t('login.submit') }}</wd-button>
+      <view class="login-page__footer">
+        <text class="login-page__link" @click="goToRegister">{{ t('login.noAccount') }}</text>
+      </view>
     </view>
   </AppPage>
 </template>
@@ -30,6 +33,10 @@ const form = reactive({
   username: 'demo',
   password: '123456'
 })
+
+function goToRegister() {
+  uni.navigateTo({ url: '/pages/register/register' })
+}
 
 async function handleLogin() {
   if (!form.username || !form.password) {
@@ -65,6 +72,16 @@ async function handleLogin() {
 
   .wd-button {
     margin-top: 32rpx;
+  }
+
+  &__footer {
+    margin-top: 24rpx;
+    text-align: center;
+  }
+
+  &__link {
+    color: var(--wot-color-primary);
+    font-size: 28rpx;
   }
 }
 </style>

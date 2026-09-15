@@ -6,6 +6,11 @@ export interface LoginParams {
   password: string
 }
 
+export interface RegisterParams {
+  username: string
+  password: string
+}
+
 export interface LoginData {
   token: string
   user?: UserInfo
@@ -13,6 +18,10 @@ export interface LoginData {
 
 export function login(data: LoginParams) {
   return request<LoginData>('/auth/login', 'POST', data)
+}
+
+export function register(data: RegisterParams) {
+  return request<LoginData>('/auth/register', 'POST', data)
 }
 
 export function getUserInfo() {
