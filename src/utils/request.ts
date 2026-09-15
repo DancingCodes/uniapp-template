@@ -1,4 +1,5 @@
 import { useUserStore } from '@/stores/user'
+import { i18n } from '@/locales'
 
 const TOKEN_KEY = 'auth-token'
 
@@ -23,6 +24,7 @@ export function request<T>(url: string, method: Method, data?: RequestData, head
       data,
       header: {
         ...header,
+        'Accept-Language': i18n.global.locale.value,
         ...(token ? { Authorization: `Bearer ${token}` } : {})
       },
       success: (response) => {

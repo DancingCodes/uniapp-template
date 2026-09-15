@@ -16,7 +16,7 @@
           </template>
         </wd-cell>
       </wd-cell-group>
-
+      <wd-divider />
       <wd-cell-group border insert>
         <wd-cell :title="t('files.download')" is-link @click="handleDownload" />
       </wd-cell-group>
@@ -58,18 +58,7 @@ function handleUploadFail(_event: UploadErrorEvent) {
 const downloadUrl = `${import.meta.env.VITE_API_BASE_URL}/files/download`
 
 function handleDownload() {
-  downloadFile(downloadUrl).then((res) => {
-    uni.openDocument({
-      filePath: res.tempFilePath,
-      showMenu: true,
-      fail: () => {
-        uni.saveFile({
-          tempFilePath: res.tempFilePath,
-          success: () => uni.showToast({ title: t('files.downloaded'), icon: 'success' }),
-          fail: () => uni.showToast({ title: t('files.downloadFailed'), icon: 'none' })
-        })
-      }
-    })
+  downloadFile(downloadUrl).then(() => {
     uni.showToast({ title: t('files.downloaded'), icon: 'success' })
   }).catch(() => {
     uni.showToast({ title: t('files.downloadFailed'), icon: 'none' })
