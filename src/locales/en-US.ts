@@ -17,6 +17,7 @@ export default {
   my: {
     settings: 'Settings',
     files: 'Files',
+    list: 'List',
     logout: 'Log out',
     logoutConfirm: 'Are you sure you want to log out?',
     confirm: 'Confirm',

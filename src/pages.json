@@ -19,6 +19,9 @@
 			"path": "pages/my/my"
 		},
 		{
+			"path": "pages/list/list"
+		},
+		{
 			"path": "pages/settings/settings"
 		},
 		{

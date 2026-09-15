@@ -4,6 +4,7 @@ import registerHandler from './routes/auth/register.post'
 import uploadHandler from './routes/files/upload.post'
 import downloadHandler from './routes/files/download.get'
 import versionHandler from './routes/app/version.get'
+import listHandler from './routes/app/list.get'
 
 export const app = createApp({
   onRequest(event) {
@@ -23,5 +24,6 @@ const router = createRouter()
     .post('/files/upload', uploadHandler)
     .get('/files/download', downloadHandler)
     .get('/app/version', versionHandler)
+    .get('/app/list', listHandler)
 
 app.use(router)

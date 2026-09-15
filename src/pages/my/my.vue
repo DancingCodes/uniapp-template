@@ -7,6 +7,7 @@
     </view>
 
     <wd-cell-group border insert>
+      <wd-cell :title="t('my.list')" is-link to="/pages/list/list" />
       <wd-cell :title="t('my.settings')" is-link to="/pages/settings/settings" />
       <wd-cell :title="t('my.files')" is-link to="/pages/files/files" />
       <wd-cell v-if="userStore.isLoggedIn" :title="t('my.logout')" is-link @click="handleLogout" />

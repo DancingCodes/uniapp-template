@@ -17,6 +17,7 @@ export default {
   my: {
     settings: '设置',
     files: '文件管理',
+    list: '列表',
     logout: '退出登录',
     logoutConfirm: '确定要退出登录吗？',
     confirm: '确定',

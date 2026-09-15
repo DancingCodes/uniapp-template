@@ -1,5 +1,5 @@
 <template>
-  <AppPage :title="t('list.demoTitle')">
+  <AppPage :title="t('my.list')">
     <AppList
       :list="pagination.list.value"
       :loading="pagination.loading.value"
@@ -29,6 +29,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import { usePagination } from '@/composables/usePagination'
+import { request } from '@/utils/request'
 
 const { t } = useI18n()
 
@@ -36,28 +37,25 @@ interface ListItem {
   id: number
   title: string
   description: string
+  createTime: string
 }
 
-// 模拟 API 请求
+// 调用真实 API 接口
 async function fetchList(params: { page: number; pageSize: number }) {
-  // 模拟网络延迟
-  await new Promise((resolve) => setTimeout(resolve, 1000))
-
-  // 模拟数据
-  const start = (params.page - 1) * params.pageSize
-  const list: ListItem[] = Array.from({ length: params.pageSize }, (_, i) => ({
-    id: start + i + 1,
-    title: `Item ${start + i + 1}`,
-    description: `Description for item ${start + i + 1}`
-  }))
-
-  // 模拟总共 50 条数据
-  const total = 50
+  const res = await request<{
+    list: ListItem[]
+    total: number
+    hasMore: boolean
+  }>({
+    url: '/app/list',
+    method: 'GET',
+    data: params
+  })
 
   return {
-    list,
-    total,
-    hasMore: start + params.pageSize < total
+    list: res.list,
+    total: res.total,
+    hasMore: res.hasMore
   }
 }
 
