@@ -56,10 +56,8 @@ export function checkUpdate() {
       cancelText: t('update.cancel'),
       success: (res) => {
         if (res.confirm) {
-          uni.showLoading({ title: `${t('update.downloading')} 0%` })
-          downloadFile(data.downloadUrl, (progress) => {
-            uni.showLoading({ title: `${t('update.downloading')} ${progress}%` })
-          }).then((filePath) => {
+          uni.showLoading({ title: t('update.downloading'), mask: true })
+          downloadFile(data.downloadUrl).then((filePath) => {
             uni.hideLoading()
             plus.runtime.install(filePath, { force: true }, () => {
               plus.runtime.restart()
