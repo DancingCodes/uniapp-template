@@ -29,29 +29,12 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import { usePagination } from '@/composables/usePagination'
-import { request } from '@/utils/request'
+import { getList, type ListItem } from '@/api/app'
 
 const { t } = useI18n()
 
-interface ListItem {
-  id: number
-  title: string
-  description: string
-  createTime: string
-}
-
-// 调用真实 API 接口
 async function fetchList(params: { page: number; pageSize: number }) {
-  const res = await request<{
-    list: ListItem[]
-    total: number
-    hasMore: boolean
-  }>({
-    url: '/app/list',
-    method: 'GET',
-    data: params
-  })
-
+  const res = await getList(params)
   return {
     list: res.list,
     total: res.total,
