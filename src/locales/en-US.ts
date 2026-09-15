@@ -63,6 +63,7 @@ export default {
   files: {
     title: 'Files',
     upload: 'Select and upload file',
+    uploadMultiple: 'Select and upload multiple files',
     selected: 'Selected file',
     uploaded: 'Upload complete',
     empty: 'No file selected',

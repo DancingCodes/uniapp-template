@@ -63,6 +63,7 @@ export default {
   files: {
     title: '文件管理',
     upload: '选择并上传文件',
+    uploadMultiple: '选择并上传多个文件',
     selected: '已选择文件',
     uploaded: '上传成功',
     empty: '尚未选择文件',

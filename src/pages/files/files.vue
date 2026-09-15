@@ -5,8 +5,14 @@
         <wd-cell :title="t('files.upload')" layout="vertical">
           <template #default>
             <wd-upload v-model:file-list="fileList" accept="image" :action="uploadAction" :limit="1"
-              custom-class="single-upload-button" :show-limit-num="false" :upload-method="customUpload"
-              @success="handleUploadSuccess" @fail="handleUploadFail" />
+              :show-limit-num="false" :upload-method="customUpload" @success="handleUploadSuccess"
+              @fail="handleUploadFail" />
+          </template>
+        </wd-cell>
+        <wd-cell :title="t('files.uploadMultiple')" layout="vertical">
+          <template #default>
+            <wd-upload v-model:file-list="multiFileList" accept="image" :action="uploadAction" :limit="9" multiple
+              :upload-method="customUpload" @success="handleUploadSuccess" @fail="handleUploadFail" />
           </template>
         </wd-cell>
       </wd-cell-group>
@@ -23,6 +29,7 @@ import { uploadFile, type UploadData } from '@/api/file'
 const { t } = useI18n()
 const uploadAction = `${import.meta.env.VITE_API_BASE_URL}/files/upload`
 const fileList = ref<UploadFileItem[]>([])
+const multiFileList = ref<UploadFileItem[]>([])
 
 const customUpload: UploadMethod = (file, formData, options) => {
   uploadFile({
