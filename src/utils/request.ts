@@ -13,7 +13,7 @@ export interface ApiResponse<T> {
   message?: string
 }
 
-export function request<T>(url: string, method: Method, data?: RequestData) {
+export function request<T>(url: string, method: Method, data?: RequestData, header?: UniNamespace.RequestOptions['header']) {
   return new Promise<T>((resolve, reject) => {
     const token = uni.getStorageSync(TOKEN_KEY)
 
@@ -22,6 +22,7 @@ export function request<T>(url: string, method: Method, data?: RequestData) {
       method,
       data,
       header: {
+        ...header,
         ...(token ? { Authorization: `Bearer ${token}` } : {})
       },
       success: (response) => {
