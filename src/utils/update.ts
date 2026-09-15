@@ -71,6 +71,6 @@ export function checkUpdate() {
         }
       }
     })
-  }).catch(() => {})
+  }).catch(() => { })
   // #endif
 }

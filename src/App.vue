@@ -3,7 +3,6 @@ import { onLaunch } from '@dcloudio/uni-app'
 import { checkUpdate } from '@/utils/update'
 
 onLaunch(() => {
-  console.log('App Launch')
   checkUpdate()
 })
 </script>
