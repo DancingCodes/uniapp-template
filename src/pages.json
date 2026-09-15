@@ -23,6 +23,9 @@
 		},
 		{
 			"path": "pages/files/files"
+		},
+		{
+			"path": "pages/update/update"
 		}
 	],
 	"globalStyle": {

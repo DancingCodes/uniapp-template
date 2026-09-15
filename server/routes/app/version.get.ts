@@ -6,7 +6,7 @@ export default (_event: H3Event) => {
     data: {
       version: '1.1.0',
       downloadUrl: 'http://app.mihaihai.com/H5Page/downPage/file/jmm_300.apk',
-      forceUpdate: true,
+      forceUpdate: false,
       description: '1. Bug fixes\n2. Performance improvements'
     },
     message: 'ok'
