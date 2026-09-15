@@ -86,5 +86,12 @@ export default {
     failed: 'Update failed',
     downloadComplete: 'Download complete, installing',
     mpReady: 'A new version is ready. Restart now?'
+  },
+  list: {
+    empty: 'No data',
+    error: 'Load failed, please retry',
+    retry: 'Retry',
+    finished: 'No more data',
+    demoTitle: 'List Demo'
   }
 }

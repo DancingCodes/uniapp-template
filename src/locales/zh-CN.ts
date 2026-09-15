@@ -86,5 +86,12 @@ export default {
     failed: '更新失败',
     downloadComplete: '下载完成，准备安装',
     mpReady: '新版本已准备好，是否重启应用？'
+  },
+  list: {
+    empty: '暂无数据',
+    error: '加载失败，请重试',
+    retry: '重新加载',
+    finished: '没有更多了',
+    demoTitle: '列表示例'
   }
 }
